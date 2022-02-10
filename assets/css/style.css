@@ -84,6 +84,11 @@ html{
     display: inline-block;
     border: none; 
     text-align: center;
+    /* khi test trên ip bị lỗi hình ảnh của nút Send nên phải thêm
+    thuộc tính -webkit-appearance: none;  để bỏ đi css mặc định được trình duyệt 
+    thêm vào */
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .btn:hover{
