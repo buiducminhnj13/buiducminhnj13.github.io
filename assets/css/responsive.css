@@ -1,0 +1,115 @@
+/* pc */
+@media (min-width: 1024px) {
+    .menu-icon {
+        /* để ảnh icon menu khi về độ phân giải pc */
+        display: none;
+    }
+}
+
+/* tablet and mobile */
+@media (max-width: 1023px){
+    .btn {
+        padding: 15px 16px;
+    }
+
+    #nav .subnav a {
+        padding: 5px 12px;
+    }
+
+    .contact-info {
+        line-height: 2;
+    }
+
+    .contact-form .form-control {
+        padding: 15px;
+    }
+
+
+    .socials-list {
+        font-size: 48px;
+    }
+
+    #footer .socials-list a {
+        margin: 0 8px;
+    }
+
+    #footer .copyright a {
+        padding: 8px 0;
+        display: inline-block;
+    }
+}
+
+
+
+
+/* tablet */
+@media (min-width: 740px) and (max-width:1023px) {
+    .menu-icon {
+        /* để ảnh icon menu khi về độ phân giải pc */
+        display: none;
+    }
+    
+}
+
+
+/* responsive cho mobile */
+/* mobile */
+@media (max-width: 740px) {
+    #nav > li {
+        display: block;
+    }
+
+    #nav .li a {
+        padding: 1px 24px;
+    }
+
+    #nav {
+        display: block;
+    } 
+    #nav .subnav {
+        position: initial;
+        background: #333;
+    }
+    
+    #nav .subnav a {
+        color: #fff;
+        padding: 5px 41px;
+    }
+
+
+    #nav > li:first-child {
+        display: inline-block;
+    }
+
+    /* ẩn nút search */
+    #header .search-btn {
+        display: none;
+    }
+
+
+    #header {
+        overflow: hidden;
+    }
+
+   
+
+    #content .members-img {
+        width: 60%;
+    }
+
+    .s-col-full {
+        width: 100% !important;
+    }
+
+    .s-mt-8 {
+        margin-top: 8px;
+    }
+
+    .s-full-width {
+        width: 100% !important;
+    }
+
+    .contact-form {
+        margin-top: 32px;
+    }
+}

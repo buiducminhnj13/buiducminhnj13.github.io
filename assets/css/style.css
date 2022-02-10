@@ -1,0 +1,609 @@
+/* resset css */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* common */
+html{
+    /* scroll-behavior: smooth; để khi trượt 1 phần nào đó sẽ mượt mà hơn */
+    scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.clear{
+    clear: both;
+}
+
+/* dùng text-while cho tất cả những phần nào muốn chữ thành màu trắng */
+/* đây là tạo class riêng lẻ mới dùng important */
+.text-white{
+    color: #fff !important;
+}
+
+/* đây là class dùng chung  */
+.text-center {
+    text-align: center !important;
+}
+
+/*  thay thế cho thẻ div clear (không cần đặt thẻ div bên html nữa) */
+.row::after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+.row {
+    margin-left:-8px;
+    margin-right: -8px;
+}
+
+.col {
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.col-2 {
+    width: 50%;
+}
+
+/*  đây là class dùng chung cho 1 phần nào đó phải chia làm 3 phần bằng nhau */
+.col-3 {
+    width: 33.33333%;
+}
+
+
+.col-full {
+    width: 100%;
+}
+
+
+.mt-8 {
+    margin-top: 8px !important;
+}
+
+.mt-16 {
+    margin-top: 16px !important;
+}
+
+.mt-32 {
+    margin-top: 32px !important;
+}
+
+/* text-decoration = none để làm mất gạch chân của chữ trong nút button */
+.btn {
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 11px 16px;
+    margin-top: 15px;
+    display: inline-block;
+    border: none; 
+    text-align: center;
+}
+
+.btn:hover{
+    color: #000;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+
+.pull-right {
+    float: right !important;
+}
+
+
+
+
+
+
+
+/* main */
+#main {
+
+}
+
+/* z-index là để thanh header nổi lên, khi mà dùng position cho slider thì thanh header bị ẩn 
+xuống hoặc nâng lên slider nên phải dùng z-index để cho header nổi lên */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 46px;
+    background-color: #000;
+    z-index: 1;
+    /* thêm overflow: hidden để ẩn những thằng con của header hiện ra khi chưa cho phép
+    ở giao diện mobile*/
+}
+
+#nav {
+    display: inline-block;
+}
+
+#nav, .subnav  {
+    list-style: none;
+}
+#nav > li {
+    display: inline-block;
+}
+
+#nav li {
+    position: relative;
+
+}
+
+#nav > li > a{
+    color: #fff;
+    text-transform: uppercase; 
+}
+
+/*  */
+#nav li a{
+   
+    text-decoration: none;
+    line-height: 46px;
+    padding: 0 24px;
+    display: block;
+}
+
+
+/* hiển thị menu cấp 2 trong MORE */
+#nav li:hover .subnav{
+    display: block;
+}
+
+
+#nav .subnav li:hover a,
+#nav > li:hover > a {
+    color: #000;
+    background-color: rgb(128, 136, 136);
+}
+
+/* top vs left để chắc chắn menu cấp 2 cách đều và đúng */
+#nav .subnav {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    min-width: 160px;
+    top: 100%;
+    left: 0;
+}
+
+#nav .subnav a{
+    color: #000;
+    padding: 0 12px;
+    line-height: 38px;
+    
+}
+
+#nav .nav-arrow-down{
+    font-size: 14px;
+}
+
+
+/* begin: header */
+#header .menu-mobile-btn,
+#header .search-btn{
+    float: right;
+    padding: 0 21px;  
+}
+
+/* vì #nav cho display = block (ở bên responsive cho mobile) nên nó chiếm hết chiều 
+ngang và đẩy menu icon xuống nên phải css cho nó position và top right */
+#header .menu-mobile-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* cursor dùng để khi người dùng chỉ vào 1 nơi nào có thể bấm được thì 
+sẽ chuyển thành hình bàn tay người */
+#header .search-btn:hover{
+    background-color: #f44336;
+    cursor: pointer;
+}
+#header .menu-mobile-btn:hover {
+    background-color: #ccc;
+}
+
+#header .menu-mobile-btn:hover .menu-icon {
+    color: #000;
+}
+
+#header .menu-icon,
+#header .search-icon{
+    color: #fff;
+    font-size: 16px;
+    line-height: 46px;
+}
+
+/* slider begin */
+
+/* padding-top 50% là lấy 50% của width(chiều ngang), khi đặt là % thì lấy theo tỉ lệ
+ ngang dọc */
+#slider {
+    position: relative;
+    margin-top: 46px;
+    padding-top: 50%;
+    background: url('/assets/img/places/slider.jpg') top center / cover no-repeat ;
+}
+
+/* left, transform là để căn giữa tất cả chữ trong ảnh */
+/* hoặc có thể dùng width  100% thay left và transform */
+/* hoặc right và left = 0 */
+#slider .text-content{
+    position: absolute;
+    bottom: 47px;
+    /* left: 50%;
+    transform: translate(-50%); */
+    width: 100%;
+    text-align: center;
+}
+
+/* font-weight là để giảm độ dày của chữ */
+#slider .text-heading{
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#slider .text-description{
+    font-size: 15px;
+}
+
+#content .content-section{
+    width: 800px;
+    /* thêm max-width: 100%; để khi thu nhỏ về kích cỡ màn hình ipad hay mobile 
+        thì nội dung vẫn sẽ hiển thị đúng (dùng cho ipad và mobile)  */
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 64px 0 112px;
+    /* vì class row có left và right âm nên phải thêm padding left và right để content hiển thị sẽ 
+    được đúng hơn (dùng cho ipad và mobile) */
+    padding-left: 16px;
+    padding-right: 16px;
+
+}
+
+/* letter-spacing là để cách khoảng cách giữa các chữ trong câu */
+#content .section-heading{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    
+}
+
+/* opacity là độ đậm nhạt của chữ */
+#content .section-sub-heading{
+    text-align: center;
+    font-size: 15px;
+    margin-top: 25px;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+/* text-align = justify là để căn đều 2 bên lề của đoạn văn */
+/* line-height là để chỉnh độ cao của dòng */
+#content .about-text {
+    font-size: 15px;
+    margin-top: 25px;
+    text-align: justify;
+    line-height: 1.4;
+}
+
+#content .members-list {
+    margin-top: 32px;
+
+}
+
+/* khi dùng float thì những con của members-list sẽ bị đưa ra 1 mặt phẳng khác, 
+và đẩy cha của nó co lại, nên phải dùng over-flow để cha của members-item bao trùm 
+lại hết các con của nó */
+
+#content .members-name{
+    font-size: 15px;
+    
+}
+
+/* border-radius là để bo góc hình ảnh */
+#content .members-img{ 
+    width: 154px;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+
+
+/* tour-section */
+/* vì không thể đổ background cho cả phần tour nên phải tạo 1 thẻ div bao quanh
+ nó để đổ cho nó 1 background  */
+.tour-section{
+    background: #000;
+}
+
+/* list-style = none là để bỏ những dấu chấm ở đầu bị thừa */
+.tickets-list {
+    background-color: #fff;
+    margin-top: 40px;
+    list-style: none;
+}
+
+.tickets-list li{
+    color: #757575;
+    font-size: 15px;
+    padding: 11px 16px;
+    border-bottom: 1px solid #ddd;
+    
+   
+}
+
+.tickets-list .Sold-out{
+    background-color: #f44336;
+    color: #fff;
+    padding: 3px 4px;
+    margin-left: 16px;
+}
+
+/* có float mới dùng được margin âm, dùng margin âm để cho số 3 căn giữa */
+/* khi có float thì thẻ đó sẽ được hiểu là thẻ có display = block, nên sẽ đặt được width height,  */
+/*  border-radius để làm tròn các cạnh của hình */
+.tickets-list .quantity{
+    background-color: #000;
+    float: right;
+    width: 24px;
+    height: 24px;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    margin-top: -3px;
+}
+
+
+/* place */
+/* thêm margin âm để cho 2 đầu của places item được bằng với places list */
+.places-list {
+    margin-top: 16px;
+
+}
+
+
+/* thêm display = block là để chữa khoảng trống giữa item và img vì display của img đang là inline */
+.places-img {
+    width: 100%;
+    display: block;
+}
+.places-img:hover {
+    opacity: 0.6;
+}
+
+.places-body {
+    background-color: #fff;
+    font-size: 15px;
+    padding: 16px;
+}
+
+.places-heading {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.places-time {
+    margin-top: 15px;
+    color: #757575;
+}
+
+.places-desc {
+    margin-top: 15px;
+    line-height: 1.4;
+    
+}
+
+
+
+
+
+
+/* contact begin */
+.contact-content {
+    margin-top:  48px;
+}
+
+.contact-info {
+    font-size:18px;
+    line-height:1.5;
+}
+
+/*  đây là nâng cao css cho tất cả những thẻ có class là ti- không quan tâm đằng sau dấu - */
+.contact-info i [class*="ti-"] {
+    width: 30px;
+    display: inline-block;
+}
+
+.contact-info a {
+    color: #101aef;
+    opacity: 0.8;
+}
+
+.contact-info a:hover {
+    opacity: 1;
+}
+
+.contact-form {
+    font-size: 15px;
+}
+
+.contact-form .form-control {
+    padding: 11px; 
+    border: 1px solid #ccc;
+    width: 100%;
+    outline: none;
+    /* ouline là để khi bấm vào input  */
+}   
+
+
+/* map section */
+.map-section img {
+    width: 100%;
+}
+
+
+
+/* footer begin */
+#footer {
+    padding: 64px 16px;
+    text-align: center;
+}
+
+#footer .socials-list {
+    font-size: 20px;
+}
+
+#footer .socials-list  a{
+    color: rgba(0,0,0,0.6);
+    text-decoration: none;
+
+}
+#footer .copyright a:hover,
+#footer .socials-list  a:hover{
+    color: rgba(0,0,0,0.4);
+}
+
+#footer .copyright {
+    font-size:15px;
+    margin-top: 15px;
+    color: rgba(0,0,0,0.6);
+}
+
+#footer .copyright a{
+    color: rgba(0,0,0,0.6);
+}
+
+
+
+/* modal: begin */
+.modal.open {
+    display: flex;
+}
+
+/* dislay = none để ẩn giao diện của buy tickets. muốn hiện ra phải có dislay=flex */
+/*    justify-content: center; là để căn ra giữa chiều ngang  */
+/* align-items: center; căn giữa chiều dọc */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-container {
+    background: #fff;
+    width: 900px;
+    /* chống cháy để khi thu nhỏ trình duyệt vẫn cách lề 2 bên 1 khỏang nhỏ */
+    max-width: calc(100% - 32px);
+    min-height: 200px;
+    position: relative;
+    animation: modalFadein ease 0.5s;
+}
+
+.modal-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    padding: 12px;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.modal-close:hover {
+    opacity: 0.5;
+}
+
+.modal-header {
+    background: #009688;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #fff;
+}
+
+.modal .modal-icon-bag {
+    margin-right: 16px;
+}
+
+.modal-body {
+    padding: 16px;
+}
+
+/* cho dislay = block để cho label và input không nằm cùng 1 dòng */
+.modal-label {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.modal-input {
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+
+#buy-tickets {
+    background: #009688;
+    border: none;
+    color: #fff;
+    width: 100%;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 17px;
+    cursor: pointer;
+}
+
+#buy-tickets:hover {
+    opacity: 0.8;
+}
+
+.modal-footer {
+    padding: 16px;
+    text-align: right;
+}
+
+.modal-footer a {
+    color: #2196F3;
+}
+
+/* đây là modal css */
+/* tạo ra chuyển động liên tiếp các hình ảnh tĩnh */
+/* translateY là chạy theo trục dọc */
+@keyframes modalFadein {
+    from { 
+        opacity: 0;
+        transform: translateY(-150px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
